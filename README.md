@@ -8,13 +8,19 @@ Supervision: Aaron Wetzler.
 
 ## Status
 
-The [original ten-page final report](docs/report.pdf) has been recovered. **Source code coming soon:** the iOS project has not yet been located. This repository is not currently a runnable app.
+The [original ten-page final report](docs/report.pdf) has been recovered. The original students' [Heartbeat repository](https://github.com/mishana/Heartbeat) is included as the `source/` Git submodule, pinned to `d5179096b96941bc0ff6aa8f0bacd88958dd37dd`. This is historical source, not a tested modern iOS release.
 
 ## Running
 
-There are no buildable app files yet, so no build command is claimed. The recovered report documents an iPhone 5 running iOS 7 and the CoreMedia, CoreVideo, CoreImage, CoreGraphics, AudioToolbox and UIKit frameworks, with Core Plot and the Facebook SDK. The original implementation analyzes the green color plane and applies a Butterworth band-pass filter.
+```sh
+git clone --recurse-submodules https://github.com/twerdster/heartbeat-ios.git
+cd heartbeat-ios
+open source/Heartbeat.xcodeproj
+```
 
-These are historical requirements, not a verified modern dependency list. Signing credentials, Facebook configuration and obsolete SDKs must not be copied into a future source release. This student research prototype is not a medical device.
+Use Xcode to inspect the historical `Heartbeat` target. The report documents an iPhone 5 running iOS 7, with Apple camera/graphics/audio frameworks, Core Plot and the Facebook SDK. The Xcode project targets iOS 7.0 for the app and contains a developer-relative Facebook SDK framework path that must be replaced with a compatible, properly licensed local dependency. Camera/flash operation requires a physical device; use your own signing configuration, not recovered provisioning material. The original implementation analyzes the green color plane and applies a Butterworth band-pass filter.
+
+These are historical requirements, not a verified modern dependency list. Original source was inspected but not compiled or run; obsolete APIs and dependencies may require porting. The pinned upstream retains its original copyright and all-rights-reserved notice; no new license is assigned here. This student research prototype is not a medical device.
 
 ## Links
 
