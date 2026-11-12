@@ -8,15 +8,19 @@ Supervision: Aaron Wetzler.
 
 ## Status
 
-**Coming soon.** This repository is being prepared as a historical student-project archive. Original source code, project documents and build instructions will be added as they are recovered and reviewed. It is not yet a runnable release.
+The [original ten-page final report](docs/report.pdf) has been recovered. **Source code coming soon:** the iOS project has not yet been located. This repository is not currently a runnable app.
 
 ## Running
 
-No runnable source has been published in this repository yet. Platform requirements and setup instructions will be recorded from the original project files rather than guessed.
+There are no buildable app files yet, so no build command is claimed. The recovered report documents an iPhone 5 running iOS 7 and the CoreMedia, CoreVideo, CoreImage, CoreGraphics, AudioToolbox and UIKit frameworks, with Core Plot and the Facebook SDK. The original implementation analyzes the green color plane and applies a Butterworth band-pass filter.
+
+These are historical requirements, not a verified modern dependency list. Signing credentials, Facebook configuration and obsolete SDKs must not be copied into a future source release. This student research prototype is not a medical device.
 
 ## Links
 
 - [Project entry on Aaron Wetzler's website](https://twerdster.github.io/#heartbeat-for-ios)
+- [Original final report](docs/report.pdf)
+- [Original demonstration](https://www.youtube.com/watch?v=dHomdiuAAFw)
 
 ## Attribution and Updates
 
