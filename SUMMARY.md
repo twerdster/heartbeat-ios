@@ -1,9 +1,25 @@
-# heartbeat-ios: original and updated code
+# heartbeat-ios: maintenance context
 
-Read README.md before maintenance. Preserve original source, submodule pins and student/third-party attribution; keep generated build output, notebook outputs and private recovery evidence out of Git.
+Read this file first, then SKILL.md and README.md. This context describes the repository as of 2026-11-12.
 
-## Updated component — 2026-11-12
+## Purpose and current source
 
-`updated/` contains the Python signal-processing core, its tests and `updated/notebooks/heartbeat_port_demo.ipynb`. The original application/source snapshot is not altered. New component validation: 20 unittest tests passed on macOS 15.1.1 arm64 / Python 3.14.4; 6 notebook code cells passed real nbclient/ipykernel execution. The macOS reference harness compiles the unchanged original Objective-C++ algorithm with a minimal UIKit interface. Green-component traces match on tested synthetic inputs; raw-frame float precision differs explicitly. Original buffer overflow is confirmed by AddressSanitizer and avoided in the Python implementation. The historical flat-input 72 bpm placeholder is deliberately preserved and documented. No full mobile/hardware application, original benchmark accuracy or Linux runtime success is claimed. Read `updated/README.md` for exact commands and limitations.
+Historical iPhone green-channel pulse-estimation prototype by Or Maayan and Michael Leybovich (report About us section and source copyright headers), with an updated Python filter/peak/BPM component.
 
-README retains the representative historical figure, three factual badges and Original code section. New runnable code is explicitly separated under Updated code (2026). No blanket license was assigned. Review this summary and any SKILL.md before committing; update actual validation when code or workflows change.
+Original source is unchanged submodule source/ at d5179096b96941bc0ff6aa8f0bacd88958dd37dd. The Python component handles supplied samples/BGRA buffers, not camera capture or the iOS UI.
+
+## Use and validation
+
+From updated/ (submodule required only for the live original-code comparison): python3 demo.py --bpm 84 --seconds 30; python3 -m unittest discover -s tests -v. updated/README.md has setup/commands; updated/ALGORITHM.md has the chain, deviations and comparison detail.
+
+updated/VALIDATION.json records 20 component tests and six real notebook code cells passed on 2026-11-12, macOS 15.1.1 arm64 / Python 3.14.4. The saved maintenance log confirms the live compiled-original comparison passed among all 20 tests (no skip). A minimal UIKit shim runs unchanged original Objective-C++ algorithm code for exact synthetic green-component trace comparison. It does not build the app or establish raw-frame parity/measurement accuracy.
+
+The port avoids the original filter overflow, but keeps the 72 bpm flat-input placeholder and related missed-peak quirks. Raw-frame scaling precision differs; the historical 32-bit device differs from the 64-bit Mac harness. iOS app/device/Linux execution is unvalidated; physical camera/flash, Core Plot and Facebook SDK integration are unresolved. Research software, not a medical device.
+
+## Documentation maintenance
+
+The 2026-11-12 documentation revision organizes the README around implementation, available source, setup, recorded checks and limits. It preserves historical visuals and links, with captions separating historical results from updated examples. No runnable code, source provenance, pinned revisions, licenses or validation results changed in this revision. Recorded earlier tests were not rerun for the prose-only edits.
+
+Preserve original source and authorship. New ports belong under updated/ and require their own scope/validation. Do not infer a blanket license from recovery. Review this file and SKILL.md before every commit and synchronize changes to workflow, commands, validation or status. Check relative links and figure rendering; never describe inventory counts or component tests as full-application validation.
+
+Two actual Claude editorial review rounds on 2026-11-12 covered the README and related changed documentation, including context files, component guides and applicable algorithm/build notes or schematic text. Useful qualifications were checked against source, preserved project records and saved validation logs, then applied. Editorial review adds no runtime coverage.
