@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-12",
+  "platform": "macOS 15.1.1 arm64",
+  "python": "3.14.4",
+  "component_tests_passed": 20,
+  "real_jupyter_code_cells_passed": 6,
+  "notebook": "updated/notebooks/heartbeat_port_demo.ipynb",
+  "original_source_changed": false,
+  "full_historical_app_validated": false,
+  "linux_validated": false,
+  "evidence": "The macOS reference harness compiles the unchanged original Objective-C++ algorithm with a minimal UIKit interface. Green-component traces match on tested synthetic inputs; raw-frame float precision differs explicitly. Original buffer overflow is confirmed by AddressSanitizer and avoided in the Python implementation. The historical flat-input 72 bpm placeholder is deliberately preserved and documented.",
+  "authorship_note": "Claude Code drafted HeartBeat and Volume Carving core translations; Codex completed/reviewed/tested the changes after Claude usage limit. CutOut updated component was written by Codex; original local formula attribution remains unverified."
+}

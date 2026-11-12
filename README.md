@@ -4,8 +4,8 @@
   <img src="assets/project-preview.jpg" alt="Two Hebrew-language HeartBeat app screens: a measurement screen showing 59 with a pulse waveform, and a results list of timestamped beats-per-minute readings" width="440">
 </p>
 
-![Platform: iOS (iPhone)](https://img.shields.io/badge/platform-iOS%20%28iPhone%29-lightgrey)
-![Code: Objective-C / Objective-C++](https://img.shields.io/badge/code-Objective--C%20%2F%20Objective--C%2B%2B-blue)
+![Platform: iOS (iPhone)](https://img.shields.io/badge/platform-iOS%20%2B%20Python%203-lightgrey)
+![Code: Objective-C++ / Python](https://img.shields.io/badge/code-Objective--C%2B%2B%20%2F%20Python-blue)
 ![Source: pinned upstream submodule](https://img.shields.io/badge/source-pinned%20upstream%20submodule-blue)
 
 Heart-rate measurement using an iPhone camera and flash to record color changes in illuminated skin; the original implementation analyzes the green color plane.
@@ -33,6 +33,12 @@ open source/Heartbeat.xcodeproj
 Use Xcode to inspect the historical `Heartbeat` target. The report documents an iPhone 5 running iOS 7, with Apple camera/graphics/audio frameworks, Core Plot and the Facebook SDK. The Xcode project targets iOS 7.0 for the app and contains a developer-relative Facebook SDK framework path that must be replaced with a compatible, properly licensed local dependency. Camera/flash operation requires a physical device; use your own signing configuration, not recovered provisioning material. The original implementation analyzes the green color plane and applies a Butterworth band-pass filter.
 
 These are historical requirements, not a verified modern dependency list. Original source was inspected but not compiled or run; obsolete APIs and dependencies may require porting. The pinned upstream retains its original copyright and all-rights-reserved notice; no new license is assigned here. This student research prototype is not a medical device.
+
+## Updated code (2026)
+
+The separately maintained [`updated/`](updated/) directory adds a runnable Python signal-processing core. The original source and student attribution remain preserved above. [Open the notebook](updated/notebooks/heartbeat_port_demo.ipynb) to explore the synthetic example; it is distinct from the historical application and original results.
+
+On macOS 15.1.1 with Python 3.14.4, **20 component tests pass**, and all 6 notebook code cells execute in an isolated real Jupyter kernel. The macOS reference harness compiles the unchanged original Objective-C++ algorithm with a minimal UIKit interface. Green-component traces match on tested synthetic inputs; raw-frame float precision differs explicitly. Original buffer overflow is confirmed by AddressSanitizer and avoided in the Python implementation. The historical flat-input 72 bpm placeholder is deliberately preserved and documented. Linux and the complete historical app have not been validated. See the [updated setup and limitations](updated/README.md).
 
 ## Links
 
