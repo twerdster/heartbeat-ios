@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-14",
+  "record": "BIDMC01, entire 480 s recording; first 10 s excluded from metrics",
+  "input": "pulse-oximeter PPG, not camera video; original [0,1] amplitude retained",
+  "source": "https://physionet.org/content/bidmc/1.0.0/",
+  "license": "Open Data Commons Attribution 1.0",
+  "processing": "linear offline resampling 125 Hz to 30 Hz; recovered Butterworth/window/peak/count/smoothing chain; guarded mode disables forced peaks and gates flat/missing input",
+  "reference": "ECG-derived HR at 1 Hz, not PPG-derived PULSE; no lag fitting or rate tuning",
+  "samples_in": 60001,
+  "samples_30hz": 14401,
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "python": "3.10.12",
+  "numpy": "2.2.6",
+  "metrics": {
+    "legacy": {
+      "pairs": 471,
+      "eligible_reference_seconds": 471,
+      "coverage": 1.0,
+      "mae_bpm": 0.7623013135351446,
+      "rmse_bpm": 1.1930885796170734,
+      "bias_bpm": -0.3477017829031898,
+      "max_abs_error_bpm": 4.618541057986093
+    },
+    "guarded": {
+      "pairs": 471,
+      "eligible_reference_seconds": 471,
+      "coverage": 1.0,
+      "mae_bpm": 0.9340808655564332,
+      "rmse_bpm": 1.4989651178578005,
+      "bias_bpm": -0.5421095258261841,
+      "max_abs_error_bpm": 5.836188909912181
+    }
+  },
+  "input_sha256": {
+    "bidmc_01_Signals.csv": "21495169cc36e82352d8e12cc6430927946d02d240b030715088d02396ea2d5c",
+    "bidmc_01_Numerics.csv": "27d43794cf2e7150db10e8bfe61d2bfdb26873a8f1629ffc5fbee5c9a4eb6ef5"
+  }
+}

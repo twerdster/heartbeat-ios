@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-14",
+  "platform": "macOS 15.1.1 arm64, Apple clang 16.0.0, strict -ffp-contract=off",
+  "scope": "all 11 per-frame fields, repaired original Algorithm.mm harness versus legacy Python",
+  "cases": {
+    "synthetic-default": {
+      "frames": 900,
+      "exact_rows_all_11_fields": 900,
+      "max_absolute_field_difference": 0
+    },
+    "synthetic-second-app-configuration": {
+      "frames": 900,
+      "exact_rows_all_11_fields": 900,
+      "max_absolute_field_difference": 0
+    },
+    "bidmc01": {
+      "frames": 14401,
+      "exact_rows_all_11_fields": 14401,
+      "max_absolute_field_difference": 0
+    }
+  }
+}

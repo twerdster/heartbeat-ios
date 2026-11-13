@@ -1,6 +1,6 @@
 # HeartBeat algorithm and reference comparison
 
-These notes describe the updated Python signal-processing component and its comparison with pinned original source `d5179096b96941bc0ff6aa8f0bacd88958dd37dd`. They are not an accuracy evaluation of the iPhone application. All comparison inputs were synthetic green-channel sequences; no original patient, camera or report measurements were reproduced.
+These notes describe the legacy Python signal-processing component and its comparison with pinned original source `d5179096b96941bc0ff6aa8f0bacd88958dd37dd`. The 2026-11-12 comparisons used synthetic green-channel sequences. The separately recorded 2026-11-14 work adds a repaired native filter, an optional guarded Python wrapper and one public pulse-oximeter PPG replay; see [the running guide](RUNNING_2026.md). None of these runs evaluates the iPhone camera application or reproduces its original report measurements.
 
 ## Processing chain
 
@@ -31,6 +31,8 @@ The recorded tests cover both configurations on selected synthetic inputs.
 
 ## Retained historical behavior
 
+These quirks remain in `HeartbeatAlgorithm` for comparison. The optional `TimestampedHeartbeat` API changes the flat-input and forced-missed-peak behavior; its output is separately labeled.
+
 * **A flat synthetic input reports 72 bpm as a "final" result after about 5 s at 30 fps.** `isCalibrationOver` does not require a
   detected peak, so the 72 bpm placeholder is returned. The app relied on a separate `red < 210` finger check.
 * `isMissedPeak` reads the 72 bpm placeholder slot, not the latest estimate. After calibration a peak is therefore
@@ -47,3 +49,9 @@ links against Foundation.
 The saved 2026-11-12 test log records all 20 tests passed, including the live compiled-original test. That test uses the `strict` build (`-ffp-contract=off`) and selected synthetic 48/150 bpm sequences plus flat input. It requires exact equality of every recorded per-frame field. Separate saved-fixture tests require exact field equality for the `algorithm` app configuration (synthetic 72 bpm) and `algorithm2` (synthetic 110 bpm), and exact coefficient equality against the saved strict-build fixture.
 
 `tests/fixtures/*_original_trace.csv` and `original_butter_coeffs.csv` were produced by the compiled original through `harness/make_fixtures.py`. They permit fixture comparisons without a compiler. The harness also exposes a `default` floating-point build, but the strict-build test result does not establish all compiler modes or platforms. No comparison here covers raw camera-frame reduction, historical 32-bit device arithmetic or pulse-rate accuracy on people.
+
+## Separately repaired filter and guarded replay (2026-11-14)
+
+The [native filter copy and patch](native/PROVENANCE.md) change only bounds in `filter()`. Its coefficients and the original `Algorithm.mm` remain unchanged. The repaired macOS harness agrees exactly with the legacy Python port in all 11 trace fields for 14,401 resampled BIDMC01 frames and two 900-frame synthetic sequences covering both original window configurations. The standalone filter's 14-case direct-recurrence test (seven lengths, transfer orders 2 and 10) passes ASan/UBSan on Mac and Linux; the full Objective-C++ harness is Mac-only.
+
+`CorrectedHeartbeatAlgorithm` disables the historical forced-peak branch and requires an observed first peak before calibration. `TimestampedHeartbeat` adds finite/range checks, offline 30 Hz linear resampling, gap resets and withholding when the range of the last 60 resampled frames (~2 s) is below 1e-9. These gates are not a general signal-quality or finger detector. The real recording comparison uses the inherited filter/peak/count/smoothing chain; the guarded mode’s combined changes had higher rate error on that record. Current metrics, coverage, reference selection and limitations are recorded in [the validation evidence](validation/2026-11-14/).

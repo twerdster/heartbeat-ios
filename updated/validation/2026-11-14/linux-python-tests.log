@@ -1,0 +1,30 @@
+test_flat_input_does_not_report_placeholder (test_corrected.CorrectedTests) ... ok
+test_invalid_samples_and_nonincreasing_times (test_corrected.CorrectedTests) ... ok
+test_irregular_sampling_resamples_and_gap_resets (test_corrected.CorrectedTests) ... ok
+test_no_forced_peaks (test_corrected.CorrectedTests) ... ok
+test_periodic_signal_estimates_known_rate (test_corrected.CorrectedTests) ... ok
+test_converges_near_synthetic_rate (test_heartbeat.AlgorithmBehaviourTests) ... ok
+test_dc_offset_invariance (test_heartbeat.AlgorithmBehaviourTests) ... ok
+test_end_to_end_from_synthetic_bgra_frames (test_heartbeat.AlgorithmBehaviourTests) ... ok
+test_flat_signal_reproduces_original_placeholder_quirk (test_heartbeat.AlgorithmBehaviourTests) ... ok
+test_instantaneous_values_are_clamped (test_heartbeat.AlgorithmBehaviourTests) ... ok
+test_no_result_before_calibration (test_heartbeat.AlgorithmBehaviourTests) ... ok
+test_peaks_respect_refractory_window (test_heartbeat.AlgorithmBehaviourTests) ... ok
+test_live_against_freshly_compiled_original (test_heartbeat.AlgorithmFidelityTests) ... skipped 'needs Apple clang + Foundation'
+test_matches_original_trace_algorithm2_configuration (test_heartbeat.AlgorithmFidelityTests) ... ok
+test_matches_original_trace_default_configuration (test_heartbeat.AlgorithmFidelityTests) ... ok
+test_band_edges_are_minus_3db (test_heartbeat.ButterworthTests) ... ok
+test_filter_is_stable (test_heartbeat.ButterworthTests) ... ok
+test_filter_matches_direct_difference_equation (test_heartbeat.ButterworthTests) ... ok
+test_matches_original_coefficients_bit_for_bit (test_heartbeat.ButterworthTests) ... ok
+test_numerator_is_scaled_band_pass_binomial (test_heartbeat.ButterworthTests) ... ok
+test_order_above_original_table_is_rejected (test_heartbeat.ButterworthTests) ... ok
+test_unit_gain_at_normalisation_frequency_and_zeros_at_dc_nyquist (test_heartbeat.ButterworthTests) ... ok
+test_average_color_precise_channel_order (test_heartbeat.FrameAveragingTests) ... ok
+test_invalid_geometry_is_rejected (test_heartbeat.FrameAveragingTests) ... ok
+test_row_padding_is_respected (test_heartbeat.FrameAveragingTests) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 1.233s
+
+OK (skipped=1)

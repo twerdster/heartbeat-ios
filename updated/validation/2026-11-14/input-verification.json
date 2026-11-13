@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-14",
+  "official_checksums": "https://physionet.org/files/bidmc/1.0.0/SHA256SUMS.txt",
+  "official_checksum_file_sha256": "e28756681318a18d9c682a68cdff65efcaccb3ece40cfccd380540b77a3fdd6d",
+  "inputs": {
+    "bidmc_01_Signals.csv": {
+      "sha256": "21495169cc36e82352d8e12cc6430927946d02d240b030715088d02396ea2d5c",
+      "matched_official_sha256sums": true
+    },
+    "bidmc_01_Numerics.csv": {
+      "sha256": "27d43794cf2e7150db10e8bfe61d2bfdb26873a8f1629ffc5fbee5c9a4eb6ef5",
+      "matched_official_sha256sums": true
+    }
+  }
+}

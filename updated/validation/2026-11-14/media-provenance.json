@@ -1,0 +1,19 @@
+{
+  "input": "BIDMC01 full recording; metrics and input hashes in bidmc01-metrics.json",
+  "plotted_modes": "legacy and guarded versus ECG HR; lower window is recorded pulse-oximeter PPG",
+  "animation": "72 source PNG frames ->12fps MP4, GIF resampled8fps, six seconds showing10\u201370s at10x saved playback",
+  "assets": {
+    "heartbeat-recording.gif": {
+      "bytes": 971001,
+      "sha256": "aca709df42e9a7468d70d93acb24104cc2a0518caec97fc57903d7f45297ab6d"
+    },
+    "heartbeat-recording.mp4": {
+      "bytes": 265836,
+      "sha256": "ed0395604784e021ce9354a1724a027ef42d16c451fed860bb80eeefac948e9d"
+    },
+    "heartbeat-recording.png": {
+      "bytes": 155947,
+      "sha256": "b371186a6ed5a723cdc5dcfbc305cf02b5164087b15fe0c19efee6d4865511a3"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+Unmodified private git archive, Xcode16.1, iOS18.1 simulator, CODE_SIGNING_ALLOWED=NO, LC_ALL=C LANG=C. xcodebuild exit65.
+/Users/aaron/.codex/project-revivals-2026-11-14/heartbeat-ios/original-app/Heartbeat/SettingsViewController.h:10:9: fatal error: 'FacebookSDK/FacebookSDK.h' file not found
+/Users/aaron/.codex/project-revivals-2026-11-14/heartbeat-ios/original-app/Heartbeat/ResultsViewController.m:12:9: fatal error: 'FacebookSDK/FacebookSDK.h' file not found
+/Users/aaron/.codex/project-revivals-2026-11-14/heartbeat-ios/original-app/Heartbeat/ResultCollectionViewCell.m:10:9: fatal error: 'FacebookSDK/FacebookSDK.h' file not found
+/Users/aaron/.codex/project-revivals-2026-11-14/heartbeat-ios/original-app/Heartbeat.xcodeproj: warning: The iOS Simulator deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 7.0, but the range of supported deployment target versions is 12.0 to 18.1.99. (in target 'Heartbeat' from project 'Heartbeat')
+** BUILD FAILED **
+Initial ambient C.UTF-8 attempt stopped during copypng because that locale is unavailable; rerun with C progressed to the missing FacebookSDK headers. Full logs retained privately.

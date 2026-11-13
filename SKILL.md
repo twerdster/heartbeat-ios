@@ -1,21 +1,17 @@
 # Maintaining heartbeat-ios
 
-Read SUMMARY.md, then this file, then README.md. Inspect relevant code, original usage records and any updated/VALIDATION.json before changing technical claims.
+Read SUMMARY.md first, then this file, the root project reference, updated/README.md, updated/RUNNING_2026.md, validation records and relevant source.
 
-## Repository workflow
+## Preservation and workflow
 
-From updated/ (submodule required only for the live original-code comparison): python3 demo.py --bpm 84 --seconds 30; python3 -m unittest discover -s tests -v. updated/README.md has setup/commands; updated/ALGORITHM.md has the chain, deviations and comparison detail.
+Keep the root README unchanged unless Aaron explicitly requests edits there. Preserve original source bytes/pins, author/student/third-party attribution, notices and permission scope. Put new code, adapters, behavioral changes, guides and result media under updated/. Never imply that a declaration-only header or headless core is a restored historical app. See the running guide for current commands/dependencies rather than duplicating them here.
 
-Treat these commands as scoped component or historical inspection procedures exactly as documented. No build/package step bundles this repository's wrapper documentation. Do not rerun missing-dependency/full-hardware applications merely to verify prose edits. When code changes, run the affected component checks and record actual environment, skips and limits.
+## Evidence
 
-## Preservation and claims
+Use updated/VALIDATION.json and updated/validation/2026-11-14/ for current results and limits. Keep earlier notebook results dated; do not imply they were rerun. Distinguish original code, native repairs, Python translation, optional behavior/output filters, actual input data, synthetic fixtures and saved playback. State the tested implementation, platform, operator chain, counts, units and reference provenance. One sequence does not establish general correctness, accuracy or clinical/device compatibility.
 
-Keep original source bytes, submodule pins, provenance manifests, student/third-party credits and licenses intact. Do not edit upstream README files in submodules or historical source documentation to modernize the wrapper. Put any future implementation or dependency adaptation in a separately labeled updated/ area with its own tests.
+Compare fixes with reproduced failures and affected tests/sanitizers. Retain raw output when new processing changes presentation. Follow SUMMARY.md for SSD data paths; recheck mount identity/space/write access before bulk writes. Keep native builds/environments off exFAT. Preserve private correspondence/contact details outside the public repository; an author's response does not assign a blanket license.
 
-The port avoids the original filter overflow, but keeps the 72 bpm flat-input placeholder and related missed-peak quirks. Raw-frame scaling precision differs; the historical 32-bit device differs from the 64-bit Mac harness. iOS app/device/Linux execution is unvalidated; physical camera/flash, Core Plot and Facebook SDK integration are unresolved. Research software, not a medical device.
+## Before every commit
 
-Before each commit, review and synchronize SUMMARY.md and this file. Validate Markdown/relative links, retained figure paths and diff scope. Keep historical figures distinct from current output, and synthetic examples distinct from measurements. Explain what unit-test counts cover; do not convert source inspection or failed builds into compatibility, correctness or benchmark claims. Do not claim an external review unless it actually occurred.
-
-## Correspondence and permission records
-
-Keep the dated README/SUMMARY author-response record accurate and limited to the responding authors and stated scope. Author permission does not establish a repository-wide license or rights to third-party dependencies. Do not publish private contact details, raw correspondence or mail-service identifiers. Preserve source, notices and existing validation limits; record any further modernization separately and describe it as completed only after its implementation and checks are recorded.
+Reread and synchronize SUMMARY.md and this file whenever behavior, commands, outputs, workflow or status changes. Verify original source hashes/pins and root README identity. Check changed Markdown, links/images, media limits and diff scope; run meaningful affected checks after code changes. No package bundles these documentation files. Keep Claude review claims tied to completed reviews and factual checks; editorial review adds no runtime coverage.

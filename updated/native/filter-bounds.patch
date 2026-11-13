@@ -1,0 +1,24 @@
+--- original/Butterworth.cpp	2026-11-12 09:54:07
++++ updated/native/Butterworth.cpp	2026-11-14 00:08:05
+@@ -205,9 +205,11 @@
+ 
+ void filter(int ord, double *a, double *b, int np, double *x, double *y)
+ {
++    // Updated 2026: bound writes to the supplied np samples, including short inputs.
++    if (np <= 0 || ord < 0 || !a || !b || !x || !y) return;
+     int i,j;
+     y[0]=b[0] * x[0];
+-    for (i=1;i<ord+1;i++)
++    for (i=1;i<ord+1 && i<np;i++)
+     {
+         y[i]=0.0;
+         for (j=0;j<i+1;j++)
+@@ -215,7 +217,7 @@
+         for (j=0;j<i;j++)
+             y[i]=y[i]-a[j+1]*y[i-j-1];
+     }
+-    for (i=ord+1;i<np+1;i++)
++    for (i=ord+1;i<np;i++)
+     {
+         y[i]=0.0;
+         for (j=0;j<ord+1;j++)

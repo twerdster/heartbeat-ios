@@ -1,0 +1,15 @@
+{
+  "heartbeat-recording.gif": {
+    "bytes": 971001,
+    "frames": 48,
+    "duration_ms": 6010,
+    "size": [
+      800,
+      480
+    ]
+  },
+  "heartbeat-recording.mp4": {
+    "bytes": 265836,
+    "fully_decoded": true
+  }
+}

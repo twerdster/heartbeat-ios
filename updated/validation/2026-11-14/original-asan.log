@@ -1,0 +1,42 @@
+=================================================================
+==99249==ERROR: AddressSanitizer: dynamic-stack-buffer-overflow on address 0x00016f3e1d08 at pc 0x000100a2075c bp 0x00016f3e1aa0 sp 0x00016f3e1a98
+WRITE of size 8 at 0x00016f3e1d08 thread T0
+    #0 0x100a20758 in filter(int, double*, double*, int, double*, double*) Butterworth.cpp:220
+    #1 0x100a21f78 in -[Algorithm newFrameDetectedWithAverageColor:] Algorithm.mm:300
+    #2 0x100a23bb0 in main trace_main.mm:92
+    #3 0x1815b4270  (<unknown module>)
+
+Address 0x00016f3e1d08 is located in stack of thread T0
+SUMMARY: AddressSanitizer: dynamic-stack-buffer-overflow Butterworth.cpp:220 in filter(int, double*, double*, int, double*, double*)
+Shadow bytes around the buggy address:
+  0x00016f3e1a80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x00016f3e1b00: ca ca ca ca 00 00 00 00 00 00 00 00 00 00 00 00
+  0x00016f3e1b80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x00016f3e1c00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x00016f3e1c80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x00016f3e1d00: 00[cb]cb cb cb cb cb cb ca ca ca ca 00 00 00 00
+  0x00016f3e1d80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x00016f3e1e00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x00016f3e1e80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x00016f3e1f00: 00 00 00 00 00 00 00 00 00 cb cb cb cb cb cb cb
+  0x00016f3e1f80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==99249==ABORTING

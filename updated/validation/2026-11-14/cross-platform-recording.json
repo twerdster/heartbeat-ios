@@ -1,0 +1,5 @@
+{
+  "comparison": "Mac and Linux bidmc01-1hz.csv byte identity, all columns/all 481 rows; includes 471 eligible reference samples",
+  "exact": true,
+  "sha256": "11842abe2e9166cbd21eef0680275321fe1fa63f4b7311069025807fcb7f42ae"
+}

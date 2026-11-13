@@ -1,57 +1,36 @@
-# HeartBeat signal-processing component (updated 2026)
+# Heartbeat processing core — updated 2026
 
-This Python translation implements the filter and peak/BPM state machine from the HeartBeat iOS prototype by Or Maayan and Michael Leybovich, supervised by Aaron Wetzler. The original app remains unchanged in the pinned `../source/` submodule. Camera capture, finger-presence checks, UI, audio, Facebook integration and result storage are not ported.
+![Recorded pulse replay](assets/heartbeat-recording.gif)
 
-## Inputs and outputs
+Recorded BIDMC01 pulse-oximeter PPG with legacy/guarded estimates and recorded ECG-derived heart rate. The six-second animation replays a 60-second excerpt at 10×; metrics cover the full eight-minute recording after a ten-second warm-up. [MP4](assets/heartbeat-recording.mp4) · [Full-size plot](assets/heartbeat-recording.png).
 
-`HeartbeatAlgorithm` accepts green components normalized to `[0, 1]`, or mean-green values on `[0, 255]` through its convenience method. The original constants assume 30 frames per second. `frames.py` can reduce a supplied BGRA buffer to RGB channel means, with explicit dimensions and row stride. It does not open a camera.
+This component runs the green-channel filter, peak detection and BPM state machine recovered from Or Maayan and Michael Leybovich’s HeartBeat app, supervised by Aaron Wetzler. It accepts supplied samples; camera capture, finger detection, UI, Facebook integration and storage remain outside this component. The original pinned `../source/` is unchanged.
 
-Processing subtracts each window's mean, applies an order-5 Butterworth band-pass, detects local peaks, counts them over a 90-frame window, then clamps/smooths the estimate. The 0.04–0.2 Nyquist band corresponds to 36–180 beats per minute at 30 fps. The API exposes estimates and calibration/final/display flags; the demo prints a time series in seconds and bpm.
+## What works and what changed
 
-## Setup and use
+The existing standard-library Python translation remains the legacy mode. A separately repaired C++ filter now bounds its startup and final loops. It is substituted into unchanged `Algorithm.mm` in a macOS harness with a minimal UIKit shim; the filter alone also builds on Linux. The Butterworth coefficients, local-peak/count/smoothing chain and original 61/46-sample window configurations remain intact.
 
-The Python component requires Python 3.10+ and the standard library. Run from this directory:
+An optional Python `TimestampedHeartbeat` wrapper does not insert inferred missed peaks, requires observed peaks before calibration, withholds constant input and resets after gaps. It resamples supplied timestamps onto the original 30 Hz grid. These are labeled behavioral changes, not recovered app behavior; they do not classify every noisy or finger-free input.
+
+## Run
+
+Python 3.10+ is sufficient for the core and component tests:
 
 ```sh
 python3 demo.py --bpm 84 --seconds 30
-python3 demo.py --csv my_mean_green_values.csv
 python3 -m unittest discover -s tests -v
 ```
 
-CSV input is one mean-green value per line (the first comma-separated field is read), sampled at 30 fps. This exercises the core without the original app's finger-presence check. For SVG output, create an output directory first:
+The demo input is synthetic. `HeartbeatAlgorithm` still exposes historical placeholder/display quirks for comparison. For the guarded API, build commands, real-data replay and notebook, see [the running guide](RUNNING_2026.md). The [algorithm notes](ALGORITHM.md) describe the operator chain and floating-point qualifications.
 
-```sh
-mkdir -p build
-python3 demo.py --bpm 110 --seconds 30 --svg build/demo.svg
-```
+## Verified results
 
-The synthetic input has a chosen pulse rate; it is a generated example, not a measured pulse or trained model. The SVG's whole-signal filter plot is illustrative: the state machine itself re-filters short windows from zero state.
+On 2026-11-14, 25 Python tests passed on macOS; Linux passed 24 with the macOS Foundation comparison explicitly skipped. The repaired C++ filter’s independent recurrence test (seven lengths each, transfer orders 2 and 10) passed with AddressSanitizer/UndefinedBehaviorSanitizer on both systems. On macOS, ASan reproduced the original filter overflow; the repaired build completed the same 90-frame input without an ASan report (no leak check).
 
-## Notebook and reference commands
+On macOS, the repaired native algorithm and legacy Python agree in all 11 trace fields for 14,401 BIDMC01 frames and two 900-frame synthetic configurations. Against 471 ECG-derived HR samples (1 Hz, 10–480 s), legacy mode had MAE 0.76 bpm/RMSE 1.19 bpm; guarded mode had higher error, MAE 0.93 bpm/RMSE 1.50 bpm. Guarded mode returned an estimate at all 471 timestamps; legacy mode does not withhold by design. [Metrics, traces and logs](validation/2026-11-14/).
 
-Open [the notebook](notebooks/heartbeat_port_demo.ipynb) in Jupyter after cloning the repository. The port has no package dependencies; a real notebook session needs a Jupyter kernel installed separately. Its six code cells are checked in without outputs. The supplied ordered-cell runner is a smoke check, not a Jupyter kernel or sandbox:
+## Limits and attribution
 
-```sh
-python3 tools/run_notebook.py notebooks/heartbeat_port_demo.ipynb --out build/heartbeat_port_demo.executed.ipynb
-```
+The attempted Xcode 16.1/iOS 18.1 simulator build (signing disabled, locale C) stopped at missing `FacebookSDK/FacebookSDK.h`; later blockers remain unknown. No device/camera, historical 32-bit arithmetic, clinical accuracy, multi-subject benchmark or full iOS application validation is established. BIDMC is pulse-oximeter PPG, not camera data; results from one record do not establish general performance. The inherited long-term smoothing can obscure short rate changes.
 
-To compare against original source, initialize the submodule from the repository root. The live harness requires macOS Foundation and Apple clang:
-
-```sh
-python3 harness/compare_with_original.py strict
-python3 harness/asan_check.py
-```
-
-The second command intentionally checks for an overflow in the original filter; it is not a port failure. The harness compiles unchanged `Algorithm.mm`/`Butterworth.cpp` with a minimal UIKit interface. See [algorithm and comparison notes](ALGORITHM.md) for the operator chain, floating-point modes and retained quirks.
-
-## Recorded validation and limits
-
-[VALIDATION.json](VALIDATION.json) records 20 component unit tests and six real Jupyter code cells passed on 2026-11-12, using macOS 15.1.1 arm64, Python 3.14.4 and Apple clang 16.0.0. The tests cover filter coefficients/output, frame reduction, algorithm state, saved original traces and a live harness comparison. The saved run log marks that live comparison as passed among all 20 tests. The live-harness test requires macOS/clang and skips when that toolchain is unavailable. With it present, missing original files from an uninitialized submodule cause a failure rather than a skip. A test run that skips this case does not establish that comparison again.
-
-Every per-frame field in the supplied synthetic green-component traces matches the compiled original exactly on the tested Mac for both historical app configurations. Raw-frame reduction is not bit-identical: Python uses double-precision scaling where the original uses float32. The original iPhone 5 also used 32-bit `CGFloat`, unlike the comparison harness. Linux execution and rounding have not been validated.
-
-The port avoids the original filter's out-of-bounds final write and rejects unsupported filter orders. It deliberately retains output quirks, including a flat signal returning the 72 bpm placeholder and missed-peak logic consulting that value. These behaviors make an apparently stable estimate insufficient evidence of a pulse. No original app build, device accuracy, clinical accuracy or benchmark is established. This research software is not a medical device.
-
-## Attribution and terms
-
-Claude Code drafted the translation; Codex completed/reviewed/tested it for Aaron Wetzler in 2026. Original files retain their upstream all-rights-reserved notices. No blanket license is assigned to original or derived work. Preserve the original authors' attribution and establish applicable reuse terms with them; authors can request corrections or removal.
+Claude Code drafted the earlier translation; Codex completed/tested it and prepared the separately labeled 2026-11-14 repairs, guards and replay tooling for maintainer Aaron Wetzler. Original source notices and student credits remain. No blanket code license is added. BIDMC data/figures are attributed to Pimentel and colleagues, PhysioNet v1.0.0, under [ODC Attribution 1.0](https://physionet.org/content/bidmc/1.0.0/).
