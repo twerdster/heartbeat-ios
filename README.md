@@ -49,6 +49,8 @@ The port deliberately retains historical output quirks: a flat signal can produc
 
 The pinned student source and its all-rights-reserved notices are unchanged. The Python translation was drafted with Claude Code, then completed/reviewed/tested with Codex for Aaron Wetzler in 2026. No blanket license is added for original or derived code; third-party terms still apply. Authors can open an issue to contribute changes, correct attribution or request removal.
 
+On 2026-11-12, Michael Leybovich confirmed that he was comfortable with Aaron Wetzler keeping the archival project page and repository. This records Michael Leybovich's response only; it does not replace the existing source notices or third-party terms. No new software license is added.
+
 ## Links
 
 - [Project entry on Aaron Wetzler's website](https://twerdster.github.io/#heartbeat-for-ios)

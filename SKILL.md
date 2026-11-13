@@ -15,3 +15,7 @@ Keep original source bytes, submodule pins, provenance manifests, student/third-
 The port avoids the original filter overflow, but keeps the 72 bpm flat-input placeholder and related missed-peak quirks. Raw-frame scaling precision differs; the historical 32-bit device differs from the 64-bit Mac harness. iOS app/device/Linux execution is unvalidated; physical camera/flash, Core Plot and Facebook SDK integration are unresolved. Research software, not a medical device.
 
 Before each commit, review and synchronize SUMMARY.md and this file. Validate Markdown/relative links, retained figure paths and diff scope. Keep historical figures distinct from current output, and synthetic examples distinct from measurements. Explain what unit-test counts cover; do not convert source inspection or failed builds into compatibility, correctness or benchmark claims. Do not claim an external review unless it actually occurred.
+
+## Correspondence and permission records
+
+Keep the dated README/SUMMARY author-response record accurate and limited to the responding authors and stated scope. Author permission does not establish a repository-wide license or rights to third-party dependencies. Do not publish private contact details, raw correspondence or mail-service identifiers. Preserve source, notices and existing validation limits; record any further modernization separately and describe it as completed only after its implementation and checks are recorded.
