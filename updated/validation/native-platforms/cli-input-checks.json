@@ -1,0 +1,47 @@
+{
+  "checks": [
+    {
+      "arguments": [
+        "59"
+      ],
+      "input": "0.5",
+      "exit_code": 2
+    },
+    {
+      "arguments": [
+        "60"
+      ],
+      "input": "nan",
+      "exit_code": 2
+    },
+    {
+      "arguments": [
+        "60"
+      ],
+      "input": "inf",
+      "exit_code": 2
+    },
+    {
+      "arguments": [
+        "60"
+      ],
+      "input": "-0.1",
+      "exit_code": 2
+    },
+    {
+      "arguments": [
+        "45"
+      ],
+      "input": "1.1",
+      "exit_code": 2
+    },
+    {
+      "arguments": [
+        "60"
+      ],
+      "input": "bad",
+      "exit_code": 2
+    }
+  ],
+  "scope": "CLI argument and supplied-sample rejection, macOS Release binary"
+}

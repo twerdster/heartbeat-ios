@@ -1,0 +1,8 @@
+{
+  "platform": "Ubuntu22.04.5 x86_64",
+  "compiler": "GCC11.4, CMake3.22.1",
+  "cli_sha256": "43cb5d0959c2b5a26fc441aafc153d56a8f8608aebd24cd61332fc1040d09164",
+  "library_sha256": "71d7034ab3466d105ece4e897dba5578993788a2ba44b6a135710f8f0cb8a81a",
+  "capture": "Pillow XCB screenshots on isolated Xvfb display",
+  "completed_frames": 14401
+}

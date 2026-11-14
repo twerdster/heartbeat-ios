@@ -1,0 +1,7 @@
+{
+  "executable_sha256": "3ba22a457b19045bdce8500517f07d0b219c9f76dc2a689d8722f0bc87fb0011",
+  "platform": "physical iPhone12, iOS18.0.1",
+  "completed_frames": 14401,
+  "input": "BIDMC01 recorded PPG",
+  "capture": "heartbeat-ios-checked-save.mov"
+}

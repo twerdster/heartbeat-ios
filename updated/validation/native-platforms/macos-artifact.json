@@ -1,0 +1,8 @@
+{
+  "platform": "macOS15.1.1, AppleM3Max arm64",
+  "app_executable_sha256": "01d175382b3081efaff1b397482eb6182209bdc15b219c4915b6c368c57bbefc",
+  "cli_sha256": "bdc3c8004d41db556236d59f972f143c8e196fd83814dc07643851f32a16b697",
+  "library_sha256": "0ccb3485b870f23b520f9e6855130fce0e67486937764bf11e3f4aa6bf09a4de",
+  "capture": "screencapture of exact application window",
+  "completed_frames": 14401
+}

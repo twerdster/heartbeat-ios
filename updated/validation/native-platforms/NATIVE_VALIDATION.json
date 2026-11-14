@@ -1,0 +1,123 @@
+{
+  "date": "2026-11-14",
+  "implementation": "New C++17 translation of recovered Algorithm.mm plus bounded native Butterworth filter; new UIKit, Java/JNI, AppKit and Tk replay frontends",
+  "input": {
+    "source": "BIDMC01 recorded pulse-oximeter PPG, not phone camera",
+    "samples": 14401,
+    "resampled_hz": 30,
+    "nominal_replay_speed": 6,
+    "csv_sha256": "623a1a266a8f5fb6bea0afc4bdb82aab7c16d4eb6d499c4e6b60e0b358d9e4bb"
+  },
+  "platforms": {
+    "ios": {
+      "result": "ios-complete.json",
+      "artifact": "ios-artifact.json",
+      "capture": "ios-capture.json",
+      "frames": 14401,
+      "final_bpm": 90.86146811423824,
+      "actual_gui_run": true
+    },
+    "android": {
+      "result": "android-complete.json",
+      "artifact": "android-artifact.json",
+      "capture": "android-capture.json",
+      "frames": 14401,
+      "final_bpm": 90.86146811423824,
+      "actual_gui_run": true
+    },
+    "macos": {
+      "result": "macos-complete.json",
+      "artifact": "macos-artifact.json",
+      "capture": "macos-capture.json",
+      "frames": 14401,
+      "final_bpm": 90.86146811423824,
+      "actual_gui_run": true
+    },
+    "linux": {
+      "result": "linux-complete.json",
+      "artifact": "linux-artifact.json",
+      "capture": "linux-capture.json",
+      "frames": 14401,
+      "final_bpm": 90.86146811423824,
+      "actual_gui_run": true
+    }
+  },
+  "trace_parity": {
+    "reference": "Earlier faithful Python translation, including inherited estimator quirks",
+    "fixtures": [
+      {
+        "name": "BIDMC01",
+        "frames": 14401
+      },
+      {
+        "name": "synthetic84",
+        "frames": 900,
+        "filter_window": 60
+      },
+      {
+        "name": "synthetic110",
+        "frames": 900,
+        "filter_window": 45
+      }
+    ],
+    "fields_per_frame": 11,
+    "mismatches": 0,
+    "records": [
+      "portable-parity.json",
+      "macos-sanitized-parity.json",
+      "linux-sanitized-parity.json"
+    ],
+    "sanitizers": "ASan/UBSan halt on errors, Linux leak detection enabled; portable targets only"
+  },
+  "checks": {
+    "cli_rejection": 6,
+    "java_input_filesystem": 26,
+    "linux_callbacks_filesystem": 28,
+    "apple_output_fault": "macos-output-fault-check.json",
+    "io_records": [
+      "android-jvm-io-tests.json",
+      "linux-io-tests.json",
+      "macos-output-fault-check.json"
+    ]
+  },
+  "claude_review": {
+    "completed": true,
+    "scope": "Two broad native implementation/documentation reviews plus focused final Apple save logic and Android/Linux IO reviews, tools disabled",
+    "material_fixes": "Checked writes/retry, retained completion records, explicit float contraction flag, validated input/data attribution, truthful display/replay qualifications",
+    "remaining": "Minor Apple completion/Pause status and invalid bundled-input screen-awake limits documented in NATIVE.md"
+  },
+  "preservation": {
+    "source_pin": "d5179096b96941bc0ff6aa8f0bacd88958dd37dd",
+    "original_source_unchanged": true,
+    "root_reference_readme_unchanged": true
+  },
+  "limitations": [
+    "Recorded PPG and synthetic samples; no live camera acquisition",
+    "Terminal-value agreement verifies completion, separate CLI comparisons check all11 fields",
+    "No clinical/general-device accuracy claim, historical32bit arithmetic or original Facebook integration",
+    "Linux UI captured using virtual display",
+    "Individual JSON writes atomic; not a cross-file transaction or process-death test"
+  ],
+  "source_sha256": {
+    "updated/platforms/CMakeLists.txt": "ddb35aebdb7067f069b77ae8ab053f451735d6219ecd24ab5b317c26816821cf",
+    "updated/platforms/Info.plist": "53dabe2f6fc881237842ceccbdd8a8fc0f25c6e57f5796f19df3158e86d32297",
+    "updated/platforms/android/app/build.gradle": "1de3670065f5d589cd6f237a6bcc3dfc36f13ee65a42610652c3e13df1912bd6",
+    "updated/platforms/android/app/src/main/AndroidManifest.xml": "d4bfa20b0117c9f626c625b5e404b7bc6397b207b0a4fff08aa23ece3f146671",
+    "updated/platforms/android/app/src/main/CMakeLists.txt": "67f5c53c277b27800e66b96922a159bcbe640951e407f14e6affce038ddf2cc7",
+    "updated/platforms/android/app/src/main/heartbeat_jni.cpp": "67c6b0a8db4993f130e4a95202b99245fcae762142efeeff9ee2b43976700c14",
+    "updated/platforms/android/app/src/main/java/org/awetzler/heartbeat/updated/MainActivity.java": "7d8de6adb7bb9747e038130e5b54f2b98a6ee8e686c213374a32363d0a19b312",
+    "updated/platforms/android/app/src/main/java/org/awetzler/heartbeat/updated/ReplayFiles.java": "41f07f3f71f98616af8a72ccf4faafecc2de5a34ca42dfa9319075a3886721c4",
+    "updated/platforms/android/build.gradle": "a41bc9c80946de40c2d168dc00bc1fa68a7c2c9ee41470e53ecdd39c3a0ed3fb",
+    "updated/platforms/android/settings.gradle": "da301fcc7c67c5a30897e03254c466f0f734aa4f4a9fd4fe96c0621ff64f59cb",
+    "updated/platforms/android/tests/ReplayFilesTest.java": "08015767ad7205d59de29783704bf1a58b76438a7164cee02be17e4f906a6999",
+    "updated/platforms/app.mm": "ab4a506724084536a01feaa6e337e3cd5fdd28783c90f49b6e3635c18b12fdfa",
+    "updated/platforms/data/NOTICE.txt": "27bcb684edf5c65b3d9f6657ad08f396510d91603c912b04f1804848cefd4702",
+    "updated/platforms/data/bidmc01-ppg.csv": "623a1a266a8f5fb6bea0afc4bdb82aab7c16d4eb6d499c4e6b60e0b358d9e4bb",
+    "updated/platforms/heartbeat_c.cpp": "d9e3983f678c201f3d9d8c81287db397ce666cb2e9dab02b03380710b70cdf29",
+    "updated/platforms/heartbeat_cli.cpp": "739d2fc7d9ffe4640442237d6b3fd2d26142c1c2fe6057b1ea302fbb14550249",
+    "updated/platforms/heartbeat_core.hpp": "c3632af30a52b1f80b032e684ed88fb6416e9e84ec29ebe464bc7cab045fdcb4",
+    "updated/platforms/linux_ui.py": "e22dde93eee8bcaba3b7c49c47f28b93d30135eb56d902d6b7c498579d5a1f86",
+    "updated/platforms/tests/test_linux_io.py": "ee18daebc3eae83db3e434e7d2bfe5536531a73cbb33b79b0bca7b5d51d067c2",
+    "updated/platforms/verify_portable.py": "bfc5b654f228331ec6f0d222f79929b4ea26c82f22b399f3200278dbb2e8c0b1"
+  }
+}

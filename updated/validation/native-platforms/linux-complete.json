@@ -1,0 +1,11 @@
+{
+  "implementation": "C++ translation of recovered Algorithm.mm with bounded native filter",
+  "input": "BIDMC01 recorded PPG",
+  "frames": 14401,
+  "total_frames": 14401,
+  "bpm": 90.86146811423824,
+  "calibrated": true,
+  "complete": true,
+  "source_hz": 30,
+  "nominal_replay_speed": 6
+}

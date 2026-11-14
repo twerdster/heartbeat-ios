@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.22)
+project(heartbeat_android LANGUAGES CXX)
+get_filename_component(PLATFORMS "${CMAKE_CURRENT_SOURCE_DIR}/../../../.." ABSOLUTE)
+add_library(heartbeat_jni SHARED heartbeat_jni.cpp "${PLATFORMS}/../native/Butterworth.cpp")
+target_include_directories(heartbeat_jni PRIVATE "${PLATFORMS}" "${PLATFORMS}/../../source/Heartbeat")
+target_compile_features(heartbeat_jni PRIVATE cxx_std_17)
+target_compile_options(heartbeat_jni PRIVATE -ffp-contract=off)

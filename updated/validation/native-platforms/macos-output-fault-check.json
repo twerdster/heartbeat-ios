@@ -1,0 +1,12 @@
+{
+  "platform": "AppKit on macOS15.1.1, final application binary",
+  "fault": "Own output directory temporarily replaced by a regular file; prior contents preserved and restored",
+  "results": [
+    "Synthetic replay completed900samples while saves failed",
+    "Visible output error, no false saved claim",
+    "After path restored, completion-save retry wrote synthetic84-complete.json",
+    "Prior BIDMC14401 completed-only record preserved across partial restart/input switch"
+  ],
+  "synthetic_final_bpm": 83.98713144136399,
+  "scope": "One directory obstruction/recovery; no crash/power-loss coverage"
+}

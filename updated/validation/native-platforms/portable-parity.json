@@ -1,0 +1,23 @@
+[
+  {
+    "fixture": "bidmc01",
+    "frames": 14401,
+    "fields": 11,
+    "mismatches": 0,
+    "first": []
+  },
+  {
+    "fixture": "synthetic84",
+    "frames": 900,
+    "fields": 11,
+    "mismatches": 0,
+    "first": []
+  },
+  {
+    "fixture": "synthetic110",
+    "frames": 900,
+    "fields": 11,
+    "mismatches": 0,
+    "first": []
+  }
+]

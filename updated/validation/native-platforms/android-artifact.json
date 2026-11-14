@@ -1,0 +1,8 @@
+{
+  "apk_sha256": "3bbde6c0c80aa7b1dbeb73448078af91b26a4374643f3ebf1674af4079b5a045",
+  "bytes": 767839,
+  "platform": "physical Pixel2, Android10/API29",
+  "input": "BIDMC01 PPG",
+  "capture": "heartbeat-android-checked-save.mp4",
+  "completed_frames": 14401
+}

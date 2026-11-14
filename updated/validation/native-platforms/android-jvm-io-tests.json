@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "assertions": 26,
+  "runtime": "OpenJDK21 on AppleSilicon/macOS15.1.1",
+  "scope": "Plain-JVM CSV validation and filesystem helper checks; no Android Activity, JNI or device filesystem execution",
+  "cases": [
+    "sample header/nonempty/finite0\u20131 validation",
+    "partial saves never create completion files",
+    "completed results survive partial restart snapshots",
+    "blocked parent returns checked error rather than throwing",
+    "failed replacement preserves target and removes temporary file",
+    "completion-only write failure remains reported despite successful progress writes"
+  ],
+  "source_sha256": {
+    "updated/platforms/android/app/src/main/java/org/awetzler/heartbeat/updated/ReplayFiles.java": "41f07f3f71f98616af8a72ccf4faafecc2de5a34ca42dfa9319075a3886721c4",
+    "updated/platforms/android/tests/ReplayFilesTest.java": "08015767ad7205d59de29783704bf1a58b76438a7164cee02be17e4f906a6999"
+  },
+  "log": "android-jvm-io-tests.log"
+}
