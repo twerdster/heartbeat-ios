@@ -1,5 +1,9 @@
 # Heartbeat processing core — updated 2026
 
+## Updated and ported for modern hardware
+
+The update provides Python and C++ translations of the recovered pulse-estimation state machine, a repaired native filter with bounded loops, and optional timestamp and signal guards in Python. New iOS, Android, macOS and Linux interfaces replay supplied PPG samples. These are processing and replay components; the historical camera app and clinical accuracy remain unvalidated.
+
 | iOS native replay · iPhone 12 | Recorded-input comparison |
 | --- | --- |
 | <img src="assets/ios-native.gif" alt="Actual iPhone screen recording of the new native Heartbeat replay" width="220"> | <img src="assets/heartbeat-recording.gif" alt="Recorded PPG and reference heart-rate comparison" width="500"> |

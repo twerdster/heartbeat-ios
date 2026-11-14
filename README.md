@@ -1,5 +1,9 @@
 # HeartBeat for iOS
 
+[![New!](updated/assets/new-badge.svg)](updated/README.md#updated-and-ported-for-modern-hardware) [Updated and ported for modern hardware](updated/README.md#updated-and-ported-for-modern-hardware)
+
+*Historical project reference follows. Current builds and results are in the updated section above.*
+
 <p align="center">
   <img src="assets/project-preview.jpg" alt="Two Hebrew-language HeartBeat app screens: a measurement screen showing 59 with a pulse waveform, and a results list of timestamped beats-per-minute readings" width="440">
 </p>
