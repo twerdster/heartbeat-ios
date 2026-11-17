@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-17",
+  "implementation": "Recorded PPG and saved-estimate replay",
+  "browser": "Chrome on macOS; isolated automated profile",
+  "viewports_css_px": [
+    [
+      1280,
+      940
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "checks": [
+    "seek reads saved ECG reference",
+    "recorded replay advances and pauses",
+    "reset rewinds saved values",
+    "390px layout has no horizontal overflow",
+    "no JavaScript page errors"
+  ],
+  "operator_checks": null,
+  "limitations": "The browser page plays saved values; it does not run the estimator, collect camera input or evaluate another person. Dataset: BIDMC01, resampled to 30 Hz. The Python-derived 1 Hz estimates are copied from the dated validation CSV; their hashes are in recording.json. See NOTICE.txt for attribution and ODC-By terms. The guarded wrapper had higher MAE on this single record (0.93 versus 0.76 bpm), so its presence is not a demonstrated accuracy improvement.",
+  "physical_devices_tested": false,
+  "live_audio_or_camera_tested": false,
+  "cross_browser_tested": false
+}

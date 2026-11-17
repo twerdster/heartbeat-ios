@@ -1,31 +1,13 @@
-# Maintaining heartbeat-ios
+# Maintain HeartBeat
 
-Read SUMMARY.md first, then this file, the root project reference, updated/README.md, updated/RUNNING_2026.md, validation records and relevant source.
+Read SUMMARY.md first, then this file, README.md, PROJECT_RECORD.md and relevant source/guides/validation.
 
-## Updated-work navigation
+Preserve source submodule/pin and notices. updated/DETAILS.md retains full processing/native results and qualifications. Use updated/VALIDATION.json and dated validation directories for exact numerical claims. Native interfaces process supplied PPG, not restored camera capture; single-record parity/error does not establish clinical accuracy. Keep BIDMC attribution and distinguish source rights from data licensing.
 
-Aaron explicitly authorized the root README’s local `New!` badge and exact “Updated and ported for modern hardware” link on 2026-11-14. Keep both linked to `updated/README.md#updated-and-ported-for-modern-hardware`; retain the italic historical-reference qualifier and preserve the rest of the historical root reference. The matching updated README heading must introduce a short, factual account of the actual changes and limitations before the existing visuals, setup and evidence. Keep implementation descriptions and detailed results under `updated/`.
+## Documentation and demo workflow
 
-This navigation addition is the authorized exception to older root-README preservation instructions below. Verify the historical body after removing only that block, preserve source hashes/pins and leave historical validation hashes attached to their original freezes. Documentation-only navigation edits do not add runtime coverage or require a package rebuild.
+Keep README brief: project purpose, author/supervisor credits, current progress, one factual visual, Updated demo and linked setup/evidence/rights. Preserve original work and distinguish recovered execution, new implementations, recorded playback and illustrative reconstructions. Long commands, conversion issues and logs belong in linked guides. Existing updated-guide heading anchors must keep working. The user authorized shortening the root README on 2026-11-17; PROJECT_RECORD.md retains its prior contents, and existing original/ material remains unchanged.
 
-## Preservation and workflow
+For static demos serve `updated/demo/` over localhost or HTTPS; use Python 3’s HTTP server with that directory. Check real controls, downloads where available, failure handling and desktop/phone-width layout. Use updated/demo/VALIDATION.json for recorded scope and updated/demo/README.md for exact commands. Physical/live-camera/microphone and cross-browser results must not be inferred from desktop automation. Existing native/model apps keep their own build/test/deploy workflows.
 
-Keep the root README unchanged unless Aaron explicitly requests edits there. Preserve original source bytes/pins, author/student/third-party attribution, notices and permission scope. Put new code, adapters, behavioral changes, guides and result media under updated/. Never imply that a declaration-only header or headless core is a restored historical app. See the running guide for current commands/dependencies rather than duplicating them here.
-
-## Evidence
-
-Use updated/VALIDATION.json and updated/validation/2026-11-14/ for current results and limits. Keep earlier notebook results dated; do not imply they were rerun. Distinguish original code, native repairs, Python translation, optional behavior/output filters, actual input data, synthetic fixtures and saved playback. State the tested implementation, platform, operator chain, counts, units and reference provenance. One sequence does not establish general correctness, accuracy or clinical/device compatibility.
-
-Compare fixes with reproduced failures and affected tests/sanitizers. Retain raw output when new processing changes presentation. Follow SUMMARY.md for SSD data paths; recheck mount identity/space/write access before bulk writes. Keep native builds/environments off exFAT. Preserve private correspondence/contact details outside the public repository; an author's response does not assign a blanket license.
-
-## Before every commit
-
-Reread and synchronize SUMMARY.md and this file whenever behavior, commands, outputs, workflow or status changes. Verify original source hashes/pins and root README identity. Check changed Markdown, links/images, media limits and diff scope; run meaningful affected checks after code changes. No package bundles these documentation files. Keep Claude review claims tied to completed reviews and factual checks; editorial review adds no runtime coverage.
-
-## Native interface maintenance
-
-See `updated/platforms/NATIVE.md` for CMake, Xcode, Gradle and Tk commands; use `updated/validation/native-platforms/` for actual execution records. Keep state-machine parity separate from signal accuracy, new replay interfaces separate from the recovered camera app, and app recordings separate from supplied data and generated plots. Android uses JNI and Linux uses ctypes to call the same C++ core. A PPG replay does not establish camera support.
-
-Reuse SDKs from private task storage, without committing signing or device identifiers. Bundle the BIDMC data notice. Publish actual app captures with precise platform and input labels; identify Linux Xvfb as a virtual display. Keep the native implementation, recorded source hashes, build commands, result schema and capture provenance synchronized. Check output-write errors before describing results as saved.
-
-Use the tests in `updated/platforms/tests/` and the Android helper regression for checked-save behavior. Preserve completed-only records during partial restarts; atomically replace individual output files and report write errors. Do not infer a current run from an old completion file: bind captures, source and binary hashes to the run. Retest output recovery after save-path changes; UI automation or static review alone does not establish numerical parity.
+When Claude review is requested, invoke it on the actual draft/facts, apply useful feedback after checking the code and retain a truthful review record. Before every commit reread/synchronize SUMMARY.md and this file, check links/images/Markdown and original hashes/pins, inspect the diff and staged files, preserve licensing/attribution and use Aaron Wetzler’s canonical commit identity. Publish normally; never rewrite history without explicit authorization. No private correspondence, access keys, student identifiers or machine-specific setup belongs in public files.

@@ -1,0 +1,18 @@
+BIDMC01 pulse-oximeter PPG, derived from BIDMC PPG and Respiration Dataset 1.0.0.
+Creators: Marco A. F. Pimentel, Alistair Johnson, Peter Charlton and David Clifton.
+Source: https://physionet.org/content/bidmc/1.0.0/
+Data license: Open Data Commons Attribution 1.0 (ODC-By).
+https://opendatacommons.org/licenses/by/1-0/
+
+This derived CSV linearly resamples the original 125 Hz PPG to 30 Hz (14,401
+samples over eight minutes). Values are supplied to the estimator where its
+original camera interface supplied a normalized green-channel value. They
+are not camera measurements and are not physical measurements from these apps.
+
+Reference: Pimentel et al., Towards a Robust Estimation of Respiratory Rate
+from Pulse Oximeters, IEEE TBME 64(8), 1914-1923. DOI:10.1109/TBME.2016.2613124.
+PhysioNet platform: Pollard et al. (2026), PhysioNet as a global platform for
+biomedical research, Nature Health. DOI:10.1038/s44360-026-00096-z.
+
+Original HeartBeat code: Or Maayan and Michael Leybovich. Original code
+notices/terms remain unchanged. This data license is not a code license.
